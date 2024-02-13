@@ -10,7 +10,7 @@
 - TailwindCSS
 
 
-## Authors
+## Authors of the base template
 
 👤 **Shaquille Ndunda**
 
