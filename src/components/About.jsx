@@ -37,12 +37,10 @@ const About = () => {
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
         className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis
-        sapiente ipsum dolorum dicta eaque cumque inventore molestias, beatae ea
-        quaerat alias accusamus voluptas autem! Alias odit voluptates in totam
-        vitae dignissimos minus eaque culpa unde tempore dolore aperiam
-        obcaecati voluptatum aliquam corrupti, suscipit accusamus! Odit unde
-        veniam dolorum ipsum doloribus.
+        Welcome to my professional journey, where each step from Frontend to Backend Development,
+         AI Prompting, and Application Design has been crafted with dedication and a forward-thinking approach.
+          My diverse skill set bridges the gap between creative design and technical execution, 
+          ensuring a seamless user experience and innovative solutions.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">

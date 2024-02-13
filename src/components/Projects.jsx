@@ -75,6 +75,8 @@ const ProjectCard = ({
               font-poppins tracking-[1px]">
               {description}
             </p>
+
+            {demo ? (
             <button
               className="live-demo flex justify-between 
               sm:text-[16px] text-[14px] text-timberWolf 
@@ -103,6 +105,7 @@ const ProjectCard = ({
               />
               LIVE DEMO
             </button>
+            ) : null}
           </div>
         </>
       )}
@@ -124,11 +127,9 @@ const Projects = () => {
         <motion.p
           variants={fadeIn('', '', 0.1, 1)}
           className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-          These projects demonstrate my expertise with practical examples of
-          some of my work, including brief descriptions and links to code
-          repositories and live demos. They showcase my ability to tackle
-          intricate challenges, adapt to various technologies, and efficiently
-          oversee projects.
+          These projectsprojects serves as a testament to my professional skills, offering a glimpse into my work through succinct overviews,
+           and providing access to both the source code and live demonstrations. They reflect my capability to navigate complex problems,
+            adaptability across diverse tech environments, and proficiency in project management.
         </motion.p>
       </div>
 
