@@ -37,10 +37,10 @@ const About = () => {
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
         className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-        Welcome to my professional journey, where each step from Frontend to Backend Development,
-         AI Prompting, and Application Design has been crafted with dedication and a forward-thinking approach.
-          My diverse skill set bridges the gap between creative design and technical execution, 
-          ensuring a seamless user experience and innovative solutions.
+          Welcome to my professional journey, where I combine expertise in Frontend and Backend Development, 
+          AI technologies, and Application Design to deliver innovative and user-centric solutions. 
+          With a dedication to bridging the gap between creative design and technical execution, 
+          I strive to create seamless digital experiences that drive impact.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">
