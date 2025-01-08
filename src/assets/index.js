@@ -32,6 +32,13 @@ import typescript from "./tech/typescript.png";
 import symfony from "./tech/symfony.png";
 import angular from "./tech/angular.png";
 import php from "./tech/php.png";
+import gitlab from "./tech/gitlab.png";
+import vue from "./tech/vue.png";
+import react from "./tech/react.png";
+import node from "./tech/node.png";
+import pandas from "./tech/pandas.png";
+import numpy from "./tech/numpy.png";
+import tensorflow from "./tech/tensorflow.png";
 import coverhunt from "./company/coverhunt.png";
 import dcc from "./company/dcc.png";
 import kelhel from "./company/kelhel.png";
@@ -88,4 +95,11 @@ export {
   dcc,
   kelhel,
   ENI,
+  react,
+  node,
+  pandas,
+  numpy,
+  tensorflow,
+  gitlab,
+  vue,
 };

@@ -26,6 +26,13 @@ import {
   dcc,
   kelhel,
   ENI,
+  react,
+  node,
+  pandas,
+  numpy,
+  tensorflow,
+  gitlab,
+  vue,
 } from "../assets";
 
 export const navLinks = [
@@ -63,14 +70,14 @@ const services = [
 ];
 
 const technologies = [
-  // {
-  //   name: "HTML 5",
-  //   icon: html,
-  // },
-  // {
-  //   name: "CSS 3",
-  //   icon: css,
-  // },
+  {
+    name: "HTML 5",
+    icon: html,
+  },
+  {
+    name: "CSS 3",
+    icon: css,
+  },
   {
     name: "JavaScript",
     icon: javascript,
@@ -94,27 +101,54 @@ const technologies = [
     icon: angular,
   },
 
-  {
-    name: "php",
-    icon: php,
-  },
-
-  {
-    name: "symfony",
-    icon: symfony,
-  },
+  // {
+  //   name: "php",
+  //   icon: php,
+  // },
+  // {
+  //   name: "symfony",
+  //   icon: symfony,
+  // },
   {
     name: "git",
     icon: git,
   },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
+  // {
+  //   name: "figma",
+  //   icon: figma,
+  // },
+    {
     name: "flutter",
     icon: flutter,
-  },
+    },
+    {
+      name: "React",
+      icon: react, 
+    },
+    {
+      name: "Node.js",
+      icon: node, 
+    },
+    {
+      name: "Pandas",
+      icon: pandas, 
+    },
+    {
+      name: "NumPy",
+      icon: numpy, 
+    },
+    {
+      name: "TensorFlow",
+      icon: tensorflow, 
+    },
+    {
+      name: "GitLab",
+      icon: gitlab,
+    },
+    {
+      name: "Vue.js 3",
+      icon: vue, 
+    },
 ];
 
 const experiences = [
