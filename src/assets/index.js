@@ -49,6 +49,7 @@ import math from "./projects/calculatrice.png";
 import sortir from "./projects/sortir.png";
 import nyeusi from "./projects/nyeusi.png";
 import space from "./projects/space-hub.png";
+import Fortil from "./company/Fortil.png";
 
 export {
   bwmap,
@@ -102,4 +103,5 @@ export {
   tensorflow,
   gitlab,
   vue,
+  Fortil,
 };

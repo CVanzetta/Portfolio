@@ -24,6 +24,7 @@ import {
   space,
   coverhunt,
   dcc,
+  Fortil,
   kelhel,
   ENI,
   react,
@@ -164,14 +165,14 @@ const experiences = [
     company_name: "Pauline Le DU Boucard",
     icon: kelhel,
     iconBg: "#333333",
-    date: "nov 2023 - jan 2024",
+    date: "nov 2023 - mar 2024",
   },
   {
-    title: "Independent Developer",
-    company_name: "Focusing on personal projects",
-    icon: dcc,
+    title: "Software Development Consultant",
+    company_name: "Fortil",
+    icon: Fortil,
     iconBg: "#333333",
-    date: "feb 2024 - Present",
+    date: "April 2024 - Present",
   },
 ];
 
