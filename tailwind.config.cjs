@@ -61,6 +61,8 @@ export default {
         overcameBold: ['Overcame Bold'],
         overcameOutline: ['Overcame Outline'],
         poppins: ['Poppins', 'sans-serif'],
+        mono: ['Space Mono', 'monospace'],
+        vt323: ['VT323', 'monospace'],
       },
     },
   },
