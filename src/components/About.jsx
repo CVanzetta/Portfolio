@@ -37,10 +37,16 @@ const About = () => {
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
         className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-          Welcome to my professional journey, where I combine expertise in Frontend and Backend Development, 
-          AI technologies, and Application Design to deliver innovative and user-centric solutions. 
-          With a dedication to bridging the gap between creative design and technical execution, 
-          I strive to create seamless digital experiences that drive impact.
+          Consultant en développement logiciel chez Fortil depuis avril 2024, spécialisé en solutions fullstack 
+          et intelligence artificielle. Diplômé Bac+5 de l'ENI École Informatique, j'excelle dans la création 
+          d'applications web modernes (React, Angular, Symfony) et le développement d'algorithmes d'IA avancés. 
+          
+          <br/><br/>
+
+          Chez Fortil, je contribue à des projets innovants pour des clients prestigieux, alliant expertise 
+          technique et vision business. Mon approche combine rigueur méthodologique, créativité et passion 
+          pour les technologies émergentes. Qu'il s'agisse de bots de trading, d'IA d'échecs ou d'applications 
+          métier complexes, je transforme les défis techniques en solutions élégantes et performantes.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">

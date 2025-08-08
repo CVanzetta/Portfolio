@@ -42,16 +42,20 @@ const Hero = () => {
             className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-eerieBlack mb-4"
             sequence={[
               "Charles Vanzetta",
-              2000, // Pause
-              "a Software Developer",
-              2000,
-              "Exploring AI and technology",
-              2000,
-              "Ready for Co-op Opportunities",
-              2000,
+              2500, // Pause
+              "Software Development Consultant @ Fortil",
+              2500,
+              "Fullstack Developer & AI Engineer",
+              2500,
+              "Passionate Problem Solver",
+              2500,
+              "Turning Ideas Into Reality",
+              2500,
+              "Building Tomorrow's Solutions Today",
+              2500,
             ]}
-            speed={50}
-            deletionSpeed={30}
+            speed={45}
+            deletionSpeed={25}
             wrapper="span"
             repeat={Infinity}
           />

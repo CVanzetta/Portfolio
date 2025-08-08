@@ -127,9 +127,10 @@ const Projects = () => {
         <motion.p
           variants={fadeIn('', '', 0.1, 1)}
           className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-          These projectsprojects serves as a testament to my professional skills, offering a glimpse into my work through succinct overviews,
-           and providing access to both the source code and live demonstrations. They reflect my capability to navigate complex problems,
-            adaptability across diverse tech environments, and proficiency in project management.
+          Découvrez une sélection de mes projets les plus impactants, reflétant mon expertise en développement 
+          fullstack, intelligence artificielle et automatisation. Chaque projet illustre ma capacité à transformer 
+          des concepts complexes en solutions robustes et scalables, de l'IA d'échecs aux plateformes web complètes. 
+          Ces réalisations démontrent ma maîtrise technique et ma vision orientée résultats.
         </motion.p>
       </div>
 

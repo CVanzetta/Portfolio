@@ -53,19 +53,19 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Full Stack Developer",
+    title: "Fullstack Development",
     icon: frontend,
   },
   {
-    title: "Algorithm and Data",
+    title: "AI & Machine Learning",
     icon: backend,
   },
   {
-    title: "AI Prompting",
+    title: "Technical Consulting",
     icon: ux,
   },
   {
-    title: "DevOps-Enabling Developer",
+    title: "DevOps & Automation",
     icon: prototyping,
   },
 ];
@@ -154,18 +154,18 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Student",
-    company_name: "ENI ecole informatique",
+    title: "Student - Computer Science",
+    company_name: "ENI École Informatique",
     icon: ENI,
     iconBg: "#333333",
-    date: "jun 2023 - jan 2024",
+    date: "June 2023 - January 2024",
   },
   {
-    title: "Intern Full stack Developer",
+    title: "Fullstack Developer Intern",
     company_name: "Pauline Le DU Boucard",
     icon: kelhel,
     iconBg: "#333333",
-    date: "nov 2023 - mar 2024",
+    date: "November 2023 - March 2024",
   },
   {
     title: "Software Development Consultant",
@@ -179,42 +179,63 @@ const experiences = [
 const projects = [
   {
     id: "project-1",
-    name: "App-Meteo",
-    description: "A weather app that offers city-specific forecasts.",
+    name: "Chess Bot AI",
+    description: "Bot d'échecs intelligent utilisant l'algorithme Minimax avec élagage Alpha-Beta. Évaluation de positions, prédiction de coups optimaux et interface graphique intégrée pour l'analyse stratégique en temps réel.",
     tags: [
       {
-        name: "react",
+        name: "python",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "minimax",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "pygame",
         color: "pink-text-gradient",
       },
     ],
-    image: meteo,
-    repo: "https://github.com/CVanzetta/App-meteo/tree/main",
-    // demo: "https://shaqdeff.github.io/KomiKult/",
+    image: space,
+    repo: "https://github.com/CVanzetta/chess-bot",
+    demo: null,
   },
   {
     id: "project-2",
-    name: "Thérapeute 86",
-    description:
-      "A showcase website with a reservation calendar for therapists, powered by Angular for streamlined appointment management.",
+    name: "Mobumoney - Crypto Monitor",
+    description: "Bot Python sophistiqué surveillant les nouvelles inscriptions Binance avec notifications Windows temps réel. Architecture multi-threading, gestion d'erreurs robuste et interface utilisateur intuitive.",
     tags: [
       {
-        name: "react",
+        name: "python",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "binance-api",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "automation",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: nyeusi,
+    repo: "https://github.com/CVanzetta/Mobumoney",
+    demo: null,
+  },
+  {
+    id: "project-3",
+    name: "Thérapeute 86",
+    description: "Site vitrine professionnel Angular avec système de réservation en ligne. Architecture modulaire, responsive design, optimisation SEO et intégration de calendrier dynamique pour cabinet de thérapie.",
+    tags: [
+      {
+        name: "angular",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "sass",
         color: "pink-text-gradient",
       },
     ],
@@ -223,48 +244,70 @@ const projects = [
     demo: "https://xn--thrapeute86-cbb.fr/",
   },
   {
-    id: "project-3",
-    name: "Calculatrice",
-    description: "This is a single-page calculator app built with JS",
+    id: "project-4",
+    name: "Finance Tracker Pro",
+    description: "Application React de gestion financière avec tableaux de bord interactifs, analyse predictive des dépenses, catégorisation automatique et export de rapports détaillés.",
     tags: [
       {
-        name: "nextjs",
+        name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "chart.js",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "localstorage",
         color: "pink-text-gradient",
       },
     ],
     image: math,
-    repo: "https://github.com/CVanzetta/Calculatrice/tree/main",
-    // demo: "https://inspiring-medovik-37d3b3.netlify.app/",
+    repo: "https://github.com/CVanzetta/Finance-Tracker",
+    demo: null,
   },
   {
-    id: "project-4",
-    name: "Sortir.com",
-    description: `A dynamic platform built with Symfony for organizing and joining group outings. Register and connect with various events around you.`,
+    id: "project-5",
+    name: "AlgoVisualizer Suite",
+    description: "Collection d'outils de visualisation algorithmique : Snake AI avec deep learning, algorithmes de tri interactifs, et visualiseur de structures de données complexes pour l'apprentissage.",
     tags: [
       {
-        name: "nextjs",
+        name: "python",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "tensorflow",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "visualization",
         color: "pink-text-gradient",
       },
     ],
     image: sortir,
-    repo: "https://github.com/CVanzetta/Sortir.com",
-    // demo: "https://movie-metro.netlify.app/",
+    repo: "https://github.com/CVanzetta/AlgoVisualizer",
+    demo: null,
+  },
+  {
+    id: "project-6", 
+    name: "Projet Enchères",
+    description: "Plateforme d'enchères en ligne complète développée en Java/Spring. Architecture MVC, gestion d'utilisateurs, système d'enchères en temps réel avec validation de transactions sécurisées.",
+    tags: [
+      {
+        name: "java",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "spring",
+        color: "green-text-gradient",
+      },
+      {
+        name: "mysql",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: meteo,
+    repo: "https://github.com/CVanzetta/ProjetEncheres",
+    demo: null,
   },
 ];
 
