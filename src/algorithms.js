@@ -41,6 +41,6 @@ export function sortFrames(input, algorithm = 'quick') {
   return frames;
 }
 
-export function verifyExample(text) {
-  return text.normalize('NFC').toLocaleLowerCase('fr').includes('protection des données');
+export function verifyExample(text, expected = 'protection des données') {
+  return text.normalize('NFC').toLocaleLowerCase().includes(expected.normalize('NFC').toLocaleLowerCase());
 }

@@ -24,25 +24,28 @@ npm run preview
 
 La sortie `dist/` est entièrement statique. Le chemin de base est défini dans `vite.config.js` ; les liens d’ancrage ne demandent aucune réécriture serveur. Images, fonte, favicon et CV sont servis localement.
 
-## Publier, lorsque vous le décidez
+## Publier
 
 Le push des sources est distinct du déploiement du site. Le dossier historique `docs/` du dépôt est conservé pour ne pas remplacer le site existant pendant cette révision.
 
 1. Les sources sont prévues pour le dépôt `CVanzetta/Portfolio`.
 2. Dans les paramètres GitHub du dépôt, **Pages → Source → GitHub Actions**.
-3. Dans **Actions**, lancer manuellement **Publier le portfolio sur GitHub Pages**.
+3. Un push ou merge sur `main` lance **Publier le portfolio sur GitHub Pages**. Le workflow reste aussi déclenchable manuellement depuis **Actions**.
 
-Le workflow fourni n’est déclenché que manuellement. Une simple mise à jour des sources ne publie pas le site. La configuration vise le dépôt `Portfolio` avec cette casse exacte. Aucun workflow distant n’a été exécuté ou testé depuis cette livraison.
+Le site est construit avec Vite puis le dossier `dist/` est publié. La configuration vise le dépôt `Portfolio` avec cette casse exacte. Le workflow Jekyll concurrent, qui pouvait publier l’ancien contenu, a été supprimé.
 
 ## Modifier le contenu
 
 - `src/content.js` : email, liens, études de cas et sélection secondaire.
 - `src/main.jsx` : présentation, expérience professionnelle, POC IA, loisirs et composants des démonstrations.
 - `src/style.css` : couleurs, typographie et mises en page adaptatives.
+- `src/content.en.js` : traduction anglaise des études de cas et projets secondaires.
 - `public/CV-Charles-Vanzetta.pdf` : CV original fourni, inchangé.
 - `public/portrait.webp` : portrait fourni pour l’accueil, optimisé pour le web.
 
 Pour intégrer la vidéo originale d’ENERVISION : ajouter la vidéo et une image de couverture à `public/`, puis renseigner `enervisionVideo` et `enervisionPoster` dans `src/content.js` (noms relatifs à `public/`). Les deux sont nécessaires. Le lecteur dispose de commandes, reste muet par défaut, se charge à la demande et se met en pause hors écran. Cette branche reste sans média tant que ces champs sont vides.
+
+Le sélecteur FR / EN dans l’en-tête traduit le site, ses démonstrations et le bandeau de consentement. Le choix reste enregistré dans le navigateur et met à jour l’attribut `lang` ainsi que le titre et les métadonnées de la page. L’adresse `?lang=en` ouvre directement la version anglaise. Le PDF du CV reste en français et est signalé comme tel dans la version anglaise.
 
 ## Démonstrations et transparence
 
@@ -62,7 +65,7 @@ Les crédits et la licence de la base d’origine sont conservés dans `ORIGINAL
 
 L’identifiant GA4 public `G-DKNH9QNFVC` est configuré dans le site. Le script Google se charge uniquement après le choix « Accepter » du bandeau de consentement. Il n’est pas nécessaire d’ajouter la balise `gtag.js` dans `index.html`.
 
-Pour utiliser un autre identifiant, définir `VITE_GA_MEASUREMENT_ID` dans les variables GitHub Actions ou dans un fichier `.env.local`, puis reconstruire le site. Le workflow Pages reste déclenché manuellement.
+Pour utiliser un autre identifiant, définir `VITE_GA_MEASUREMENT_ID` dans les variables GitHub Actions ou dans un fichier `.env.local`, puis reconstruire le site.
 
 Refuser est proposé au même niveau. Le lien « Confidentialité & cookies » permet de modifier son choix ; le retrait désactive la collecte, efface les cookies GA accessibles puis recharge la page. Choix conservé 180 jours. Fonctions publicitaires désactivées. La collecte réelle n’a pas été vérifiée dans la propriété GA4.
 

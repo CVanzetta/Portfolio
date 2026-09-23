@@ -1,10 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const STAGES = [
+const STAGES_FR = [
   { title: 'Un agent explore.', text: 'Un serpent, un environnement, des décisions à prendre.' },
   { title: 'Une population essaie.', text: 'Le dézoom révèle 500 parcours illustratifs, tous différents.' },
   { title: 'Garder les 20 % meilleurs.', text: '100 agents sont conservés ; les 400 autres sont écartés.' },
   { title: 'Croiser. Muter. Recommencer.', text: 'Les parents sélectionnés donnent naissance à une nouvelle population.' },
+];
+const STAGES_EN = [
+  { title: 'One agent explores.', text: 'One snake, one environment, and decisions to make.' },
+  { title: 'A population tries.', text: 'Zooming out reveals 500 different illustrative paths.' },
+  { title: 'Keep the best 20%.', text: '100 agents remain; the other 400 are discarded.' },
+  { title: 'Cross over. Mutate. Repeat.', text: 'The selected parents produce a new population.' },
 ];
 const DURATION = 20000;
 const retained = id => ((id * 137 + 41) % 500) < 100;
@@ -72,7 +78,7 @@ function draw(ctx, w, h, ms) {
   ctx.restore(); ctx.globalAlpha = 1;
 }
 
-export default function SnakeEvolution() {
+export default function SnakeEvolution({ lang = 'fr' }) {
   const canvas = useRef(null), wrapper = useRef(null), elapsed = useRef(0);
   const [paused, setPaused] = useState(false), [visible, setVisible] = useState(false);
   const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -109,13 +115,15 @@ export default function SnakeEvolution() {
   }, [paused, reduced, visible, stage, revision]);
   function jump(index) { setRevision(n => n + 1); elapsed.current = [0, 7000, 12000, 17500][index]; setStage(index); setPaused(true); }
   const running = !paused && !reduced;
+  const en = lang === 'en';
+  const stages = en ? STAGES_EN : STAGES_FR;
   return <div className="evolution-demo" ref={wrapper}>
-    <div className="visual-label"><span>03 / UNE POPULATION ÉVOLUE</span><span>ILLUSTRATION</span></div>
-    <div className="evolution-screen"><canvas ref={canvas} role="img" aria-label="Animation pédagogique : un Snake, un dézoom sur 500 agents illustratifs, une sélection de 100 parents, puis la reconstitution de la population."/><div className="evolution-counter"><strong>{stage === 0 ? '01' : stage === 2 ? '100 / 500' : '500'}</strong><span>{stage === 0 ? 'AGENT' : stage === 2 ? 'PARENTS RETENUS' : 'AGENTS ILLUSTRÉS'}</span></div></div>
-    <div className="evolution-controls"><button onClick={() => setPaused(p => !p)} disabled={reduced} aria-label={running ? 'Mettre en pause l’animation Snake' : 'Lire l’animation Snake'}>{running ? 'Ⅱ Pause' : '▶ Lire'}</button><button onClick={() => { elapsed.current = 0; setRevision(n => n + 1); setStage(0); setPaused(reduced); }}>↻ Recommencer</button></div>
-    <div className="evolution-stages" aria-label="Étapes de la sélection génétique">{['Explorer', 'Dézoomer', 'Sélectionner', 'Reproduire'].map((label, index) => <button key={label} onClick={() => jump(index)} aria-pressed={index === stage}>{String(index + 1).padStart(2, '0')}<span>{label}</span></button>)}</div>
-    <div className="evolution-copy" aria-live="polite"><h4>{STAGES[stage].title}</h4><p>{STAGES[stage].text}</p></div>
-    <p className="visual-footnote">Animation pédagogique, pas un entraînement enregistré. Les trajectoires et le classement sont illustratifs. Le script original démarre avec 100 agents ; la sélection des 20 % est celle du code.</p>
-    {reduced && <p className="motion-note">Mouvement réduit : explorez les quatre étapes avec les boutons.</p>}
+    <div className="visual-label"><span>{en ? '03 / A POPULATION EVOLVES' : '03 / UNE POPULATION ÉVOLUE'}</span><span>ILLUSTRATION</span></div>
+    <div className="evolution-screen"><canvas ref={canvas} role="img" aria-label={en ? 'Educational animation: one Snake, a zoom out to 500 illustrative agents, selection of 100 parents, then renewal of the population.' : 'Animation pédagogique : un Snake, un dézoom sur 500 agents illustratifs, une sélection de 100 parents, puis la reconstitution de la population.'}/><div className="evolution-counter"><strong>{stage === 0 ? '01' : stage === 2 ? '100 / 500' : '500'}</strong><span>{stage === 0 ? 'AGENT' : stage === 2 ? en ? 'PARENTS SELECTED' : 'PARENTS RETENUS' : en ? 'ILLUSTRATIVE AGENTS' : 'AGENTS ILLUSTRÉS'}</span></div></div>
+    <div className="evolution-controls"><button onClick={() => setPaused(p => !p)} disabled={reduced} aria-label={running ? en ? 'Pause the Snake animation' : 'Mettre en pause l’animation Snake' : en ? 'Play the Snake animation' : 'Lire l’animation Snake'}>{running ? 'Ⅱ Pause' : en ? '▶ Play' : '▶ Lire'}</button><button onClick={() => { elapsed.current = 0; setRevision(n => n + 1); setStage(0); setPaused(reduced); }}>{en ? '↻ Restart' : '↻ Recommencer'}</button></div>
+    <div className="evolution-stages" aria-label={en ? 'Genetic selection stages' : 'Étapes de la sélection génétique'}>{(en ? ['Explore', 'Zoom out', 'Select', 'Reproduce'] : ['Explorer', 'Dézoomer', 'Sélectionner', 'Reproduire']).map((label, index) => <button key={label} onClick={() => jump(index)} aria-pressed={index === stage}>{String(index + 1).padStart(2, '0')}<span>{label}</span></button>)}</div>
+    <div className="evolution-copy" aria-live="polite"><h4>{stages[stage].title}</h4><p>{stages[stage].text}</p></div>
+    <p className="visual-footnote">{en ? 'Educational animation, not a recording of training. Paths and rankings are illustrative. The original script starts with 100 agents and selects the top 20%.' : 'Animation pédagogique, pas un entraînement enregistré. Les trajectoires et le classement sont illustratifs. Le script original démarre avec 100 agents ; la sélection des 20 % est celle du code.'}</p>
+    {reduced && <p className="motion-note">{en ? 'Reduced motion: explore the four stages with the buttons.' : 'Mouvement réduit : explorez les quatre étapes avec les boutons.'}</p>}
   </div>;
 }

@@ -23,6 +23,8 @@ test('text presence: success, failure, case and Unicode accents', () => {
   assert.equal(verifyExample('Article 04 : Protection des données'), true);
   assert.equal(verifyExample('PROTECTION DES DONNÉES'), true);
   assert.equal(verifyExample('Protection des données'.normalize('NFD')), true);
+  assert.equal(verifyExample('Section 04: Data protection', 'data protection'), true);
+  assert.equal(verifyExample('Section 04: Services', 'data protection'), false);
   assert.equal(verifyExample('Contrat sans cette clause'), false);
   assert.equal(verifyExample(''), false);
 });
