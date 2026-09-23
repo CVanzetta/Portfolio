@@ -20,9 +20,9 @@ for (const algorithm of ['quick', 'bubble', 'insertion']) {
   });
 }
 test('text presence: success, failure, case and Unicode accents', () => {
-  assert.equal(verifyExample('Document de démonstration'), true);
-  assert.equal(verifyExample('DOCUMENT DE DÉMONSTRATION'), true);
-  assert.equal(verifyExample('Document de démonstration'.normalize('NFD')), true);
-  assert.equal(verifyExample('Document différent'), false);
+  assert.equal(verifyExample('Article 04 : Protection des données'), true);
+  assert.equal(verifyExample('PROTECTION DES DONNÉES'), true);
+  assert.equal(verifyExample('Protection des données'.normalize('NFD')), true);
+  assert.equal(verifyExample('Contrat sans cette clause'), false);
   assert.equal(verifyExample(''), false);
 });

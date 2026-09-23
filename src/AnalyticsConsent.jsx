@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { readConsent, storeConsent, enableAnalytics, disableAnalytics, validMeasurementId } from './analytics';
 
-const measurementId = (import.meta.env.VITE_GA_MEASUREMENT_ID || '').trim();
+const measurementId = (import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-DKNH9QNFVC').trim();
 const configured = validMeasurementId(measurementId);
 const storage = {
   getItem(key) { try { return window.localStorage.getItem(key); } catch { return null; } },

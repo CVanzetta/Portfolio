@@ -47,8 +47,8 @@ Pour intégrer la vidéo originale d’ENERVISION : ajouter la vidéo et une ima
 ## Démonstrations et transparence
 
 - **Tri** : vraie exécution JavaScript de Quick Sort, Bubble Sort et Insertion Sort, créée pour le portfolio. L’application Java d’origine n’est pas lancée. Données synthétiques, compteurs calculés, aucun benchmark temporel. L’animation démarre uniquement sur demande, s’arrête en fin de tri, à la sortie de l’écran et lorsque l’onglet devient caché.
-- **PDF** : vérification locale d’une présence de texte, inspirée de `Tests.json`. L’exemple est identifié comme synthétique ; il n’exécute pas l’OCR ou l’API du projet.
-- **Snake AI** : animation Canvas pédagogique en boucle : un agent, dézoom sur 500 agents illustratifs, sélection de 100 parents, renouvellement. Le script original utilise 100 agents et conserve 20 %. Pause, étapes manuelles, arrêt hors écran et préférence de mouvement réduit pris en charge. Aucun modèle entraîné ne joue dans la page.
+- **PDF** : animation d’un contrôle de clause sur un contrat fictif, avec cas manquant puis cas corrigé. L’exemple est identifié comme synthétique ; il n’exécute pas l’OCR ou l’API du projet et ne détermine aucune validité juridique.
+- **Snake AI** : animation Canvas pédagogique en boucle : un agent, dézoom sur 500 agents illustratifs, sélection de 100 parents, renouvellement. La pomme reste en place jusqu’au passage de la tête du serpent. Le script original utilise 100 agents et conserve 20 %. Pause, étapes manuelles, arrêt hors écran et préférence de mouvement réduit pris en charge. Aucun modèle entraîné ne joue dans la page.
 - **ENERVISION** : schéma du rôle personnel confirmé par Charles ; pas de bouton vers un service arrêté.
 - **POC IA professionnel** : présentation narrative fondée sur les précisions de Charles, sans code interne, capture fabriquée ni performances inventées.
 
@@ -58,16 +58,14 @@ Voir `docs/SOURCES.md` pour les sources, les corrections de l’ancien portfolio
 
 Les crédits et la licence de la base d’origine sont conservés dans `ORIGINAL-LICENSE.md`. La capture AlgoVisualizer vient du dépôt de ce projet ; elle n’a pas été recréée. Space Mono provient des fichiers du portfolio existant.
 
-## Google Analytics (désactivé par défaut)
+## Google Analytics
 
-Aucun identifiant GA4 n’a été fourni : aucun script Google ni bandeau de consentement n’est chargé. Pour activer plus tard :
+L’identifiant GA4 public `G-DKNH9QNFVC` est configuré dans le site. Le script Google se charge uniquement après le choix « Accepter » du bandeau de consentement. Il n’est pas nécessaire d’ajouter la balise `gtag.js` dans `index.html`.
 
-1. Créer une propriété GA4 et un flux Web, puis récupérer l’identifiant `G-…`.
-2. Dans GitHub, Settings → Secrets and variables → Actions → Variables, définir `VITE_GA_MEASUREMENT_ID` avec cet identifiant public.
-3. Relancer manuellement le workflow Pages. Pour travailler localement, copier `.env.example` en `.env.local`, renseigner la même variable puis reconstruire.
+Pour utiliser un autre identifiant, définir `VITE_GA_MEASUREMENT_ID` dans les variables GitHub Actions ou dans un fichier `.env.local`, puis reconstruire le site. Le workflow Pages reste déclenché manuellement.
 
-Une fois configuré, Google n’est chargé qu’après « Accepter ». Refuser est proposé au même niveau. Le lien « Confidentialité & cookies » permet de modifier son choix ; le retrait désactive la collecte, efface les cookies GA accessibles puis recharge la page. Choix conservé 180 jours. Fonctions publicitaires désactivées. Aucun test de collecte réelle n’a été effectué faute de propriété GA4.
+Refuser est proposé au même niveau. Le lien « Confidentialité & cookies » permet de modifier son choix ; le retrait désactive la collecte, efface les cookies GA accessibles puis recharge la page. Choix conservé 180 jours. Fonctions publicitaires désactivées. La collecte réelle n’a pas été vérifiée dans la propriété GA4.
 
 ## Direction visuelle de la révision
 
-Bleu cobalt et bleu clair sur papier chaud, sans année dans la signature. Portrait à l’accueil avec une légère perspective CSS (pas un modèle 3D). Photo extérieure retirée. La future photo de badminton pourra être intégrée lorsqu’elle sera fournie.
+Vert profond et vert clair sur papier chaud, sans année dans la signature. Portrait à l’accueil avec une légère perspective CSS (pas un modèle 3D). Photo extérieure retirée. La future photo de badminton pourra être intégrée lorsqu’elle sera fournie.

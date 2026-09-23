@@ -18,7 +18,7 @@ export function stageAt(ms) {
 // Educational choreography. Paths and rankings are illustrative, not model output.
 function draw(ctx, w, h, ms) {
   ctx.clearRect(0, 0, w, h);
-  ctx.fillStyle = '#192437'; ctx.fillRect(0, 0, w, h);
+  ctx.fillStyle = '#172b25'; ctx.fillRect(0, 0, w, h);
   const t = ms % DURATION;
   const zoomOut = ease((t - 2200) / 4300);
   const zoomIn = ease((t - 18500) / 1500);
@@ -40,10 +40,10 @@ function draw(ctx, w, h, ms) {
     if (Math.abs(px - centerX) > w / scale / 2 + cell || Math.abs(py - centerY) > h / scale / 2 + cell) continue;
     const winner = retained(id);
     ctx.globalAlpha = (winner ? 1 : 1 - select * .93 * (1 - rebirth)) * (id === selectedY * columns + selectedX ? 1 : ease(zoom * 2));
-    ctx.fillStyle = '#243249'; ctx.fillRect(px + .6, py + .6, cell - 1.2, cell - 1.2);
+    ctx.fillStyle = '#244435'; ctx.fillRect(px + .6, py + .6, cell - 1.2, cell - 1.2);
     const unit = cell / 12;
     if (scale > 3) {
-      ctx.strokeStyle = '#35445b'; ctx.lineWidth = .08;
+      ctx.strokeStyle = '#3e604d'; ctx.lineWidth = .08;
       for (let j = 1; j < 12; j++) { ctx.beginPath(); ctx.moveTo(px + j * unit, py); ctx.lineTo(px + j * unit, py + cell); ctx.stroke(); ctx.beginPath(); ctx.moveTo(px, py + j * unit); ctx.lineTo(px + cell, py + j * unit); ctx.stroke(); }
     }
     // Each path traverses a small rectangular circuit with a distinct offset/speed.
@@ -59,12 +59,15 @@ function draw(ctx, w, h, ms) {
     const current = Math.floor(step * (.55 + (id % 9) / 12)) + id * 7;
     for (let k = 5 + id % 4; k >= 0; k--) {
       const [sx, sy] = locate(current - k);
-      ctx.fillStyle = k === 0 ? '#e9efff' : winner && select > .3 ? '#76a3ff' : '#5584d0';
+      ctx.fillStyle = k === 0 ? '#eff8f0' : winner && select > .3 ? '#9addb0' : '#65b483';
       ctx.fillRect(px + sx * unit, py + sy * unit, unit * .88, unit * .88);
     }
-    const [fx, fy] = locate(current + 6);
+    // The fruit stays on a cell until the head reaches it, then respawns.
+    const firstFruitStep = id * 7 + 9;
+    const eaten = Math.max(0, Math.floor((current - firstFruitStep) / 9) + 1);
+    const [fx, fy] = locate(firstFruitStep + eaten * 9);
     ctx.fillStyle = '#ffb68a'; ctx.fillRect(px + fx * unit, py + fy * unit, unit * .75, unit * .75);
-    if (winner && select > .1) { ctx.strokeStyle = '#a8c5ff'; ctx.lineWidth = .55 * select * (1 - rebirth); ctx.strokeRect(px + 1, py + 1, cell - 2, cell - 2); }
+    if (winner && select > .1) { ctx.strokeStyle = '#b7dfc7'; ctx.lineWidth = .55 * select * (1 - rebirth); ctx.strokeRect(px + 1, py + 1, cell - 2, cell - 2); }
   }
   ctx.restore(); ctx.globalAlpha = 1;
 }
