@@ -1,6 +1,7 @@
 // English copy mirrors the French case studies while retaining shared IDs and links.
 export const projectTranslations = {
   'pdf-verifier': {
+    problem: 'Find missing wording before a document is approved.', technologies: ['Python', 'FastAPI', 'Vue', 'Tesseract', 'OpenCV'],
     type: 'Professional project · sanitized public version', category: 'OCR / AUTOMATION',
     title: 'Check a document,\nnot just read it.',
     summary: 'Extract text from a PDF, check required wording, and compare visual elements against references.',
@@ -11,16 +12,18 @@ export const projectTranslations = {
     note: 'This repository demonstrates OCR and classical computer vision. It does not contain a verifiable LLM or RAG pipeline.',
   },
   algovisualizer: {
+    problem: 'Understand an algorithm’s steps beyond its final result.', technologies: ['Java 21', 'Spring Boot', 'Canvas', 'JUnit'],
     type: 'Personal project · open contributions', category: 'JAVA / ALGORITHMS',
     title: 'See what happens\nbetween two results.',
     summary: 'An application that breaks sorting algorithms into visible, controllable steps in the browser.',
     contribution: 'Built the Java / Spring Boot visualizer and its web interface. The repository also includes external contributions.',
     choices: 'Each algorithm produces snapshots of the array. A shared interface and a Spring service separate computation from rendering in Canvas.',
     proof: 'The sorting implementations and JUnit tests are present. For example, the QuickSort test verifies that [3, 2, 1] becomes [1, 2, 3] in three snapshots.',
-    limit: 'Storing every step uses more memory as the array grows. The demo at the top of this page is a standalone JavaScript adaptation, not the original Java server.',
+    limit: 'Storing every step uses more memory as the array grows. The interactive demo in this card is a standalone JavaScript adaptation, not the original Java server.',
     note: 'An algorithms project, separate from Snake AI and the LLM projects.',
   },
   'snake-ai': {
+    problem: 'Observe how a game strategy evolves and why it fails.', technologies: ['Python', 'Neural network', 'Genetic algorithm'],
     type: 'Personal project · experiment', category: 'PYTHON / LEARNING',
     title: 'Learn to play.\nUnderstand failure.',
     summary: 'A neural agent whose weights evolve through selection, crossover, and mutation to control Snake.',
@@ -31,6 +34,7 @@ export const projectTranslations = {
     note: 'The animation illustrates selection, crossover, and mutation; the paths do not come from a trained model.',
   },
   enervision: {
+    problem: 'Connect data preparation with monitoring a deployed model.', technologies: ['Python', 'FastAPI', 'Vue 3', 'PostgreSQL', 'Docker'],
     type: 'Academic project · Master’s level · 2026', category: 'ETL / MACHINE LEARNING',
     title: 'From energy data\nto a monitored model.',
     summary: 'Smart Energy Optimizer: a data and machine learning pipeline presented at my final exam.',

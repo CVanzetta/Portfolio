@@ -1,3 +1,5 @@
+export const cvFile = lang => lang === 'en' ? 'Anglais.pdf' : 'francais.pdf';
+
 export const profile = {
   email: 'charles.vanzetta@gmail.com',
   github: 'https://github.com/CVanzetta',
@@ -9,7 +11,8 @@ export const profile = {
 
 export const projects = [
   {
-    id: 'pdf-verifier', number: '01', name: 'PDF Verifier', type: 'Développement professionnel · version publique assainie', category: 'OCR / AUTOMATISATION',
+    problem: 'Repérer les mentions manquantes avant la validation d’un document.', technologies: ['Python', 'FastAPI', 'Vue', 'Tesseract', 'OpenCV'],
+    id: 'pdf-verifier', number: '02', name: 'PDF Verifier', type: 'Développement professionnel · version publique assainie', category: 'OCR / AUTOMATISATION',
     title: 'Vérifier un document,\npas seulement le lire.',
     summary: 'Extraire le texte d’un PDF, contrôler les mentions attendues et comparer ses éléments visuels à des références.',
     contribution: 'Développement d’un outil de contrôle documentaire, avec interface Vue et API Python. Le dépôt public contient une version générique, sans documents ni résultats métier.',
@@ -20,18 +23,20 @@ export const projects = [
     repo: 'https://github.com/CVanzetta/pdf-verifier',
   },
   {
-    id: 'algovisualizer', number: '02', name: 'AlgoVisualizer', type: 'Projet personnel · contributions ouvertes', category: 'JAVA / ALGORITHMIQUE',
+    problem: 'Comprendre les étapes d’un algorithme, au-delà de son résultat final.', technologies: ['Java 21', 'Spring Boot', 'Canvas', 'JUnit'],
+    id: 'algovisualizer', number: '03', name: 'AlgoVisualizer', type: 'Projet personnel · contributions ouvertes', category: 'JAVA / ALGORITHMIQUE',
     title: 'Voir ce qui se passe\nentre deux résultats.',
     summary: 'Une application qui décompose les algorithmes de tri en étapes visibles et pilotables dans le navigateur.',
     contribution: 'Développement du visualiseur Java / Spring Boot et de son interface web. Le dépôt comprend aussi des contributions externes.',
     choices: 'Chaque algorithme produit des instantanés du tableau. Une interface commune et un service Spring séparent le calcul de la restitution dans le Canvas.',
     proof: 'Les implémentations de tri et les tests JUnit sont présents. Le test QuickSort vérifie par exemple que [3, 2, 1] devient [1, 2, 3] en trois instantanés.',
-    limit: 'Stocker les étapes consomme de la mémoire quand le tableau grandit. La démonstration en haut de cette page est une adaptation JavaScript autonome, pas le serveur Java original.',
+    limit: 'Stocker les étapes consomme de la mémoire quand le tableau grandit. La démonstration interactive dans cette carte est une adaptation JavaScript autonome, pas le serveur Java original.',
     note: 'Projet d’algorithmique, distinct de Snake AI et des projets LLM.',
     repo: 'https://github.com/CVanzetta/AlgoVisualizer',
   },
   {
-    id: 'snake-ai', number: '03', name: 'Snake AI', type: 'Projet personnel · expérimentation', category: 'PYTHON / APPRENTISSAGE',
+    problem: 'Observer comment une stratégie de jeu évolue et pourquoi elle échoue.', technologies: ['Python', 'Réseau neuronal', 'Algorithme génétique'],
+    id: 'snake-ai', number: '04', name: 'Snake AI', type: 'Projet personnel · expérimentation', category: 'PYTHON / APPRENTISSAGE',
     title: 'Apprendre à jouer.\nComprendre les échecs.',
     summary: 'Un agent neuronal dont les poids évoluent par sélection, croisement et mutation pour contrôler un Snake.',
     contribution: 'Implémentation de la logique du jeu, du réseau de décision et de la boucle d’évolution génétique en Python.',
@@ -42,7 +47,8 @@ export const projects = [
     repo: 'https://github.com/CVanzetta/snake-AI',
   },
   {
-    id: 'enervision', number: '04', name: 'ENERVISION', type: 'Projet scolaire · Bac+5 · 2026', category: 'ETL / MACHINE LEARNING',
+    problem: 'Relier la préparation des données au suivi d’un modèle en exploitation.', technologies: ['Python', 'FastAPI', 'Vue 3', 'PostgreSQL', 'Docker'],
+    id: 'enervision', number: '05', name: 'ENERVISION', type: 'Projet scolaire · Bac+5 · 2026', category: 'ETL / MACHINE LEARNING',
     title: 'De la donnée énergie\nau modèle surveillé.',
     summary: 'Smart Energy Optimizer : un projet de chaîne de données et de Machine Learning, présenté lors de l’examen de fin d’études.',
     contribution: 'Rôle de Product Owner : organisation du travail et du temps. Prise en charge de l’ETL, de l’entraînement des modèles, de leur mise en place et de l’alerting.',

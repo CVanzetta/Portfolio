@@ -1,6 +1,6 @@
 # Portfolio de Charles Vanzetta
 
-Portfolio en français, compatible avec `https://cvanzetta.github.io/Portfolio/`.
+Portfolio français / anglais, compatible avec `https://cvanzetta.github.io/Portfolio/`.
 React 18 et Vite conservés depuis le projet existant. Les dépendances et le verrou npm d’origine sont préservés ; le site n’importe ni Three.js, ni EmailJS, ni les bibliothèques d’animation. Aucun backend, formulaire d’envoi fictif ou secret côté navigateur.
 
 ## Lancer
@@ -37,15 +37,27 @@ Le site est construit avec Vite puis le dossier `dist/` est publié. La configur
 ## Modifier le contenu
 
 - `src/content.js` : email, liens, études de cas et sélection secondaire.
-- `src/main.jsx` : présentation, expérience professionnelle, POC IA, loisirs et composants des démonstrations.
+- `src/main.jsx` : assemblage de la page, projets, loisirs et démonstrations PDF / tri.
+- `src/PortfolioExperience.jsx` : accueil avec portrait, navigation par domaines, POC professionnel, accordéons et manifeste.
+- `src/DemoVideo.jsx` : lecteur vidéo différé et état « Démo vidéo à venir ».
+- `src/editorial.css` : composition du portrait et styles de cette révision.
 - `src/style.css` : couleurs, typographie et mises en page adaptatives.
 - `src/content.en.js` : traduction anglaise des études de cas et projets secondaires.
-- `public/CV-Charles-Vanzetta.pdf` : CV original fourni, inchangé.
-- `public/portrait.webp` : portrait fourni pour l’accueil, optimisé pour le web.
+- `public/francais.pdf` et `public/Anglais.pdf` : CV téléchargé selon la langue active du portfolio.
+- `public/portrait-cutout-v2-{540,900}.webp` : portrait détouré retenu, optimisé en deux tailles (77 / 198 ko). Le PNG source fourni est conservé.
+
+### Vidéos à fournir
+
+Ajouter les enregistrements réels dans `public/videos/` :
+
+- `ai-playwright-demo.mp4` : demande du testeur, utilisation du socle Playwright, résultat et trace éventuelle.
+- `algo-visualizer-demo.mp4` : démonstration de l’application Java originale.
+
+WebM est également accepté. Une couverture facultative peut porter le même nom avec l’extension `.webp`, `.png` ou `.jpg`. Les fichiers sont détectés au démarrage / build par `vite.config.js` : **redémarrer le serveur après leur ajout**. Le prochain build GitHub Pages les intégrera automatiquement. Aucun fichier absent n’est demandé ; le lecteur apparaît seulement lorsqu’une vidéo existe. Les vidéos ne démarrent pas automatiquement, sont muettes par défaut et se mettent en pause hors écran. La capture originale reste visible pour AlgoVisualizer en attendant. Le tri interactif se trouve désormais dans cette carte, via « Essayer un tri ».
 
 Pour intégrer la vidéo originale d’ENERVISION : ajouter la vidéo et une image de couverture à `public/`, puis renseigner `enervisionVideo` et `enervisionPoster` dans `src/content.js` (noms relatifs à `public/`). Les deux sont nécessaires. Le lecteur dispose de commandes, reste muet par défaut, se charge à la demande et se met en pause hors écran. Cette branche reste sans média tant que ces champs sont vides.
 
-Le sélecteur FR / EN dans l’en-tête traduit le site, ses démonstrations et le bandeau de consentement. Le choix reste enregistré dans le navigateur et met à jour l’attribut `lang` ainsi que le titre et les métadonnées de la page. L’adresse `?lang=en` ouvre directement la version anglaise. Le PDF du CV reste en français et est signalé comme tel dans la version anglaise.
+Le sélecteur FR / EN dans l’en-tête traduit le site, ses démonstrations et le bandeau de consentement. Le choix reste enregistré dans le navigateur et met à jour l’attribut `lang` ainsi que le titre et les métadonnées de la page. L’adresse `?lang=en` ouvre directement la version anglaise. Tous les liens de téléchargement utilisent `francais.pdf` en français et `Anglais.pdf` en anglais.
 
 ## Démonstrations et transparence
 
@@ -57,9 +69,9 @@ Le sélecteur FR / EN dans l’en-tête traduit le site, ses démonstrations et 
 
 ## Références et limites
 
-Voir `docs/SOURCES.md` pour les sources, les corrections de l’ancien portfolio et les informations manquantes. Voir `docs/VERIFICATIONS.md` pour le compte rendu des contrôles réellement effectués.
+Voir `docs/SOURCES.md` pour les sources, les corrections de l’ancien portfolio et les informations manquantes. Voir [la révision du 24 septembre](docs/EXPERIENCE-2026-09.md) pour les derniers contrôles et `docs/VERIFICATIONS.md` pour l’historique.
 
-Les crédits et la licence de la base d’origine sont conservés dans `ORIGINAL-LICENSE.md`. La capture AlgoVisualizer vient du dépôt de ce projet ; elle n’a pas été recréée. Space Mono provient des fichiers du portfolio existant.
+Les crédits et la licence de la base d’origine sont conservés dans `ORIGINAL-LICENSE.md`. La capture AlgoVisualizer vient du dépôt de ce projet ; elle n’a pas été recréée. Space Mono provient des fichiers du portfolio existant. IBM Plex Mono est embarquée localement pour l’accueil ; sa licence est conservée dans `docs/IBM-PLEX-LICENSE.txt`.
 
 ## Google Analytics
 
@@ -71,4 +83,4 @@ Refuser est proposé au même niveau. Le lien « Confidentialité & cookies » p
 
 ## Direction visuelle de la révision
 
-Vert profond et vert clair sur papier chaud, sans année dans la signature. Portrait à l’accueil avec une légère perspective CSS (pas un modèle 3D). Photo extérieure retirée. La future photo de badminton pourra être intégrée lorsqu’elle sera fournie.
+Vert profond et vert clair sur papier chaud, sans année dans la signature. Grand portrait détouré entre « FULLSTACK / DEVELOPER » et « APPLIED AI », avec composition simplifiée sur mobile. Bebas Neue produit les grandes lettres hautes et condensées qui traversent le portrait, tandis qu’IBM Plex Mono conserve le registre code de la présentation. La présentation contient une ligne typographique animée, figée si la réduction des mouvements est active. Navigation par domaines synchronisée au scroll. Le POC compact distingue le socle existant, le prototype, la contribution transverse et le parcours cible dans un accordéon ; AlgoVisualizer porte le numéro 03 et affiche directement le tri interactif. Une vraie vidéo apparaîtra comme mode supplémentaire lorsqu’elle sera fournie. Le manifeste conserve ses trois étapes et sa grande flèche.

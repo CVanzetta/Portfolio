@@ -7,7 +7,7 @@
 - Confirmation directe : ENERVISION, rôle de PO, organisation du temps et du travail, ETL, entraînement des modèles, mise en place et alerting. Hébergement scolaire coupé après l’examen.
 - Confirmation directe : POC professionnel en Python / OpenCode, modèles Qwen ou GLM 5.2, analyse de tickets Jira, lancement de l’application avec Playwright, écriture / modification / lancement de tests, couche FastAPI. Le code ne peut pas être montré. Aucune validation humaine ni autonomie complète n’a été supposée.
 - Le CV sert de source actuelle pour Fortil, le parcours, Séoul 2018–2019, le badminton en compétition et le mahjong Riichi. Aucun classement sportif, nombre de pays ou résultat de modèle n’a été inventé.
-- Portrait retenu pour l’accueil : fichier fourni `Image Codex 22 sept. 2026, 10_57_49.png`, redimensionné et compressé en WebP. Aucune nouvelle génération de visage. Photo extérieure retirée à la demande de Charles ; photo de badminton non encore fournie.
+- Portrait retenu pour l’accueil : fichier fourni `Image Codex 24 sept. 2026, 15_35_25.png`, redimensionné et compressé en deux WebP transparents. Aucune nouvelle génération de visage pendant l’intégration. Photo extérieure retirée à la demande de Charles ; photo de badminton non encore fournie.
 
 ## Sources publiques inspectées
 
