@@ -3,12 +3,14 @@ import { createRoot } from 'react-dom/client';
 import { initialValues, sortFrames, verifyExample } from './algorithms';
 import { profile, projects, secondary, cvFile } from './content';
 import { projectTranslations, secondaryTranslations } from './content.en';
-import '@fontsource/bebas-neue/latin.css';
 import './style.css';
 import './editorial.css';
-import { SiteHeader, Hero, TopicNav, ProjectDetails, AlgoShowcase, ProfessionalPOC, AboutSection, usePageExperience } from './PortfolioExperience';
+import './agentic.css';
+import { SiteHeader, SiteLogo, Hero, BadmintonProject, TopicNav, ProjectDetails, AlgoShowcase, ProfessionalPOC, AboutSection, usePageExperience } from './PortfolioExperience';
 import SnakeEvolution from './SnakeEvolution';
 import AnalyticsConsent from './AnalyticsConsent';
+import WindowBar from './RetroWindow';
+import HobbyIcon from './HobbyIcon';
 
 const asset = (name) => `${import.meta.env.BASE_URL}${name}`;
 const tx = (lang, fr, en) => lang === 'en' ? en : fr;
@@ -119,10 +121,20 @@ function EnergyDiagram({ lang }) {
   return <div className="energy-demo"><div className="visual-label"><span>{tx(lang, '05 / DU PIPELINE AU SUIVI', '05 / FROM PIPELINE TO MONITORING')}</span><span>{tx(lang, 'PROJET D’EXAMEN', 'FINAL EXAM PROJECT')}</span></div><div className="pipeline"><div><small>{tx(lang, '01 / PRÉPARER', '01 / PREPARE')}</small><strong>{tx(lang, 'Données → ETL', 'Data → ETL')}</strong></div><span aria-hidden="true">↓</span><div><small>{tx(lang, '02 / APPRENDRE', '02 / TRAIN')}</small><strong>{tx(lang, 'Entraînement du modèle', 'Model training')}</strong></div><span aria-hidden="true">↓</span><div><small>{tx(lang, '03 / EXPLOITER', '03 / OPERATE')}</small><strong>{tx(lang, 'Mise en place & alerting', 'Deployment & alerts')}</strong></div></div><div className="energy-bottom"><span className="mono">{tx(lang, 'MON PÉRIMÈTRE', 'MY ROLE')}</span><p>{tx(lang, 'Product Owner · ETL · entraînement · alerting', 'Product Owner · ETL · training · alerting')}</p></div><p className="visual-footnote">{tx(lang, 'Schéma de mon intervention. Hébergement scolaire arrêté après l’examen.', 'Diagram of my work. School hosting ended after the exam.')}</p></div>;
 }
 
+const projectExecutables = {
+  'pdf-verifier': 'pdf-verifier.exe',
+  algovisualizer: 'algovisualizer.exe',
+  'snake-ai': 'snake-ai.exe',
+  enervision: 'enervision.exe',
+};
+
 function Project({ project: p, lang }) {
-  return <article id={p.id} className={`project project-${p.id}`}>
+  return <article id={p.id} className={`project retro-window project-${p.id}`}>
+    <WindowBar title={projectExecutables[p.id]} detail={p.category}/>
+    <div className="retro-project-body">
     <div className="project-visual">{p.id === 'pdf-verifier' ? <PDFDemo lang={lang}/> : p.id === 'algovisualizer' ? <AlgoShowcase lang={lang}><SortDemo lang={lang}/></AlgoShowcase> : p.id === 'snake-ai' ? <SnakeEvolution lang={lang}/> : <EnergyDiagram lang={lang}/>}</div>
-    <div className="project-content" data-reveal><div className="project-kicker"><span>{p.number} — {p.name}</span><span>{p.category}</span></div><h3>{p.title.split('\n').map((line, i) => <React.Fragment key={line}>{i > 0 && <br/>}{line}</React.Fragment>)}</h3><p className="project-problem"><span className="mono">{tx(lang, "LE BESOIN", "THE NEED")}</span>{p.problem}</p><p className="project-summary">{p.summary}</p><ul className="project-tech" aria-label={tx(lang, "Technologies", "Technologies")}>{p.technologies.map(tech => <li key={tech}>{tech}</li>)}</ul><p className="project-type">{p.type}</p><ProjectDetails title={tx(lang, 'Dans le projet', 'Inside the project')}><div className="case-study"><h4>{tx(lang, 'Ma contribution', 'My contribution')}</h4><p>{p.contribution}</p><h4>{tx(lang, 'Choix techniques', 'Technical choices')}</h4><p>{p.choices}</p><h4>{tx(lang, 'Ce qui est vérifiable', 'What you can verify')}</h4><p>{p.proof}</p><h4>{tx(lang, 'Limite actuelle', 'Current limitation')}</h4><p>{p.limit}</p><p className="case-note">{p.note}</p></div></ProjectDetails><div className="project-links">{p.repo ? <External href={p.repo} lang={lang}>{tx(lang, 'Explorer le code', 'Explore the code')} <Arrow/></External> : <a href={asset(cvFile(lang))} download>{tx(lang, 'Voir le projet dans mon CV ↓', 'See this project in my CV ↓')}</a>}</div></div>
+    <div className="project-content" data-reveal><p className="project-kicker">{p.name}</p><h3>{p.title.split('\n').map((line, i) => <React.Fragment key={line}>{i > 0 && <br/>}{line}</React.Fragment>)}</h3><p className="project-problem"><span className="mono">{tx(lang, "LE BESOIN", "THE NEED")}</span>{p.problem}</p><p className="project-summary">{p.summary}</p><ul className="project-tech" aria-label={tx(lang, "Technologies", "Technologies")}>{p.technologies.map(tech => <li key={tech}>{tech}</li>)}</ul><p className="project-type">{p.type}</p><ProjectDetails title={tx(lang, 'Dans le projet', 'Inside the project')}><div className="case-study"><h4>{tx(lang, 'Ma contribution', 'My contribution')}</h4><p>{p.contribution}</p><h4>{tx(lang, 'Choix techniques', 'Technical choices')}</h4><p>{p.choices}</p><h4>{tx(lang, 'Ce qui est vérifiable', 'What you can verify')}</h4><p>{p.proof}</p><h4>{tx(lang, 'Limite actuelle', 'Current limitation')}</h4><p>{p.limit}</p><p className="case-note">{p.note}</p></div></ProjectDetails><div className="project-links">{p.repo ? <External href={p.repo} lang={lang}>{tx(lang, 'Explorer le code', 'Explore the code')} <Arrow/></External> : <a href={asset(cvFile(lang))} download>{tx(lang, 'Voir le projet dans mon CV ↓', 'See this project in my CV ↓')}</a>}</div></div>
+    </div>
   </article>;
 }
 
@@ -132,7 +144,25 @@ function Contact({ lang }) {
     try { await navigator.clipboard.writeText(profile.email); setCopyState('copied'); }
     catch { setCopyState('error'); }
   }
-  return <section className="contact section" id="contact"><div className="section-eyebrow">04 / CONTACT</div><div className="contact-heading"><h2>{tx(lang, 'Parlons de ce', 'Let’s talk about what')}<br/>{tx(lang, 'qu’on peut ', 'we can ')}<em>{tx(lang, 'construire.', 'build.')}</em></h2><a className="contact-circle" href={`mailto:${profile.email}`} aria-label={tx(lang, 'Envoyer un email à Charles Vanzetta', 'Email Charles Vanzetta')}>↗</a></div><div className="contact-bottom"><div><a className="email" href={`mailto:${profile.email}`}>{profile.email}</a><button className="copy" onClick={copy} aria-label={tx(lang, 'Copier l’adresse email', 'Copy email address')}>{tx(lang, 'Copier l’adresse ⧉', 'Copy address ⧉')}</button><span className="copy-status" role="status">{copyState === 'copied' ? tx(lang, 'Adresse copiée', 'Email address copied') : copyState === 'error' ? tx(lang, 'Copie indisponible : sélectionnez l’adresse ci-dessus.', 'Copy unavailable: select the address above.') : ''}</span></div><div className="socials"><External href={profile.github} lang={lang}>GitHub ↗</External><External href={profile.linkedin} lang={lang}>LinkedIn ↗</External><a href={asset(cvFile(lang))} download>{tx(lang, 'Télécharger mon CV ↓', 'Download my CV ↓')}</a></div></div></section>;
+  return <section className="contact section retro-window" id="contact" aria-labelledby="contact-title">
+    <WindowBar title="contact.txt" detail="Contact"/>
+    <div className="contact-heading">
+      <h2 id="contact-title">{tx(lang, 'Parlons de ce qu’on peut construire.', 'Let’s talk about what we can build.')}</h2>
+      <a className="agent-primary contact-action" href={`mailto:${profile.email}`}>{tx(lang, 'Écrire un e-mail', 'Send an email')}</a>
+    </div>
+    <div className="contact-bottom">
+      <div>
+        <a className="email" href={`mailto:${profile.email}`}>{profile.email}</a>
+        <button type="button" className="copy" onClick={copy}>{tx(lang, 'Copier l’adresse', 'Copy address')}</button>
+        <span className="copy-status" role="status">{copyState === 'copied' ? tx(lang, 'Adresse copiée', 'Email address copied') : copyState === 'error' ? tx(lang, 'Copie indisponible. Sélectionnez l’adresse ci-dessus.', 'Copy unavailable. Select the address above.') : ''}</span>
+      </div>
+      <div className="socials">
+        <External href={profile.github} lang={lang}>GitHub</External>
+        <External href={profile.linkedin} lang={lang}>LinkedIn</External>
+        <a href={asset(cvFile(lang))} download>{tx(lang, 'Télécharger mon CV', 'Download my CV')}</a>
+      </div>
+    </div>
+  </section>;
 }
 
 function App() {
@@ -147,11 +177,11 @@ function App() {
   const localizedSecondary = lang === 'en' ? secondary.map((project, index) => ({ ...project, ...secondaryTranslations[index] })) : secondary;
   useEffect(() => {
     document.documentElement.lang = lang;
-    document.title = tx(lang, 'Charles Vanzetta — Développement, IA appliquée & data', 'Charles Vanzetta — Software development, applied AI & data');
+    document.title = tx(lang, 'Charles Vanzetta — Développement logiciel & IA agentique', 'Charles Vanzetta — Software development & agentic AI');
     const metadata = {
-      'meta[name="description"]': tx(lang, 'Portfolio de Charles Vanzetta : automatisation, IA appliquée et data. Découvrez mes projets, leurs choix techniques et leurs limites.', 'Charles Vanzetta’s portfolio: automation, applied AI, and data. Explore my projects, technical choices, and limitations.'),
+      'meta[name="description"]': tx(lang, 'Portfolio de Charles Vanzetta : IA agentique, automatisation et vision par ordinateur. Comparez des stratégies d’orchestration et découvrez les projets Playwright et YOLO Badminton.', 'Charles Vanzetta’s portfolio: agentic AI, automation, and computer vision. Compare orchestration strategies and explore the Playwright and YOLO Badminton projects.'),
       'meta[property="og:title"]': tx(lang, 'Charles Vanzetta — Du code aux preuves.', 'Charles Vanzetta — Code backed by evidence.'),
-      'meta[property="og:description"]': tx(lang, 'Développement logiciel, IA appliquée et data. Projets, démonstrations et choix techniques.', 'Software development, applied AI, and data. Projects, demos, and technical choices.'),
+      'meta[property="og:description"]': tx(lang, 'IA agentique, automatisation et vision par ordinateur. Projets et démonstrations interactives.', 'Agentic AI, automation, and computer vision. Projects and interactive demos.'),
       'meta[property="og:locale"]': lang === 'en' ? 'en_US' : 'fr_FR',
     };
     for (const [selector, value] of Object.entries(metadata)) document.querySelector(selector)?.setAttribute('content', value);
@@ -166,12 +196,26 @@ function App() {
   return <>
     <a className="skip" href="#main">{tx(lang, 'Aller au contenu', 'Skip to content')}</a>
     <SiteHeader lang={lang} onLanguageChange={chooseLanguage}/>
-    <main id="main" tabIndex={-1}><Hero lang={lang}/><TopicNav lang={lang}/>
-    <section className="section projects" id="projets"><div className="section-title"><div><p className="section-eyebrow">{tx(lang, '01 / PROJETS CHOISIS', '01 / SELECTED PROJECTS')}</p><h2>{tx(lang, 'Du code.', 'Code.')}<br/><em>{tx(lang, 'Des preuves.', 'Evidence.')}</em></h2></div><p>{tx(lang, 'Un POC en entreprise et quatre projets pour voir', 'One workplace proof of concept and four projects showing')}<br className="desktop"/> {tx(lang, 'ce que je construis, des choix techniques aux limites.', 'what I build, from technical choices to limitations.')}</p></div><ProfessionalPOC lang={lang}/><div className="project-list">{localizedProjects.map(p => <Project project={p} lang={lang} key={p.id}/>)}</div><div className="more-projects"><h3>{tx(lang, 'D’autres terrains d’exploration', 'More areas to explore')}<span> / 03</span></h3>{localizedSecondary.map((p, i) => <ProjectDetails key={p.name} title={<><span className="mono">0{i + 6}</span><strong>{p.name}</strong><span className="secondary-area">{p.area}</span></>}><div><p>{p.description}</p><External href={p.url} lang={lang}>{tx(lang, 'Consulter le dépôt ↗', 'View the repository ↗')}</External></div></ProjectDetails>)}</div></section>
+    <main id="main" tabIndex={-1}><Hero lang={lang}/>
+    <section className="section projects" id="projets">
+      <div className="section-title"><h2>{tx(lang, 'Projets', 'Projects')}</h2></div>
+      <TopicNav lang={lang}/>
+      <div className="project-list">
+        <ProfessionalPOC lang={lang}/>
+        <BadmintonProject lang={lang}/>
+        {localizedProjects.map(project => <Project project={project} lang={lang} key={project.id}/>)}
+        <div className="more-projects retro-window">
+          <WindowBar title="projets/" detail={tx(lang, 'Autres projets', 'More projects')}/>
+          {localizedSecondary.map(project => <ProjectDetails key={project.name} title={<><strong>{project.name}</strong><span className="secondary-area">{project.area}</span></>}>
+            <div><p>{project.description}</p><External href={project.url} lang={lang}>{tx(lang, 'Consulter le dépôt', 'View the repository')}</External></div>
+          </ProjectDetails>)}
+        </div>
+      </div>
+    </section>
     <AboutSection lang={lang}/>
-    <section className="method section"><div className="section-title"><div><p className="section-eyebrow">{tx(lang, 'UNE FAÇON DE TRAVAILLER', 'HOW I WORK')}</p><h2>{tx(lang, 'Rendre le résultat', 'Make the result')}<br/><em>{tx(lang, 'vérifiable.', 'verifiable.')}</em></h2></div><p>{tx(lang, 'Du problème initial aux limites du système,', 'From the initial problem to the system’s limitations,')}<br className="desktop"/> {tx(lang, 'chaque étape doit pouvoir s’expliquer.', 'every step should be explainable.')}</p></div><div className="method-grid"><div><span>{tx(lang, '01 / COMPRENDRE', '01 / UNDERSTAND')}</span><h3>{tx(lang, 'Définir ce qu’on contrôle.', 'Define what to check.')}</h3><p>{tx(lang, 'Dans PDF Verifier, une règle explicite ce que le document doit contenir.', 'In PDF Verifier, a rule specifies what the document must contain.')}</p></div><div><span>{tx(lang, '02 / CONSTRUIRE', '02 / BUILD')}</span><h3>{tx(lang, 'Séparer les responsabilités.', 'Separate responsibilities.')}</h3><p>{tx(lang, 'Dans AlgoVisualizer, le calcul des étapes est séparé de leur affichage.', 'In AlgoVisualizer, step calculation is separate from rendering.')}</p></div><div><span>{tx(lang, '03 / ÉVALUER', '03 / EVALUATE')}</span><h3>{tx(lang, 'Regarder aussi les échecs.', 'Study failures too.')}</h3><p>{tx(lang, 'Dans Snake AI, la limite de perception est documentée au lieu d’être cachée.', 'In Snake AI, the perception limitation is documented rather than hidden.')}</p></div><div><span>{tx(lang, '04 / RENDRE UTILISABLE', '04 / MAKE IT USEFUL')}</span><h3>{tx(lang, 'Penser au suivi.', 'Plan for monitoring.')}</h3><p>{tx(lang, 'Dans ENERVISION, mon périmètre inclut la mise en place du modèle et l’alerting.', 'In ENERVISION, my scope includes model deployment and alerting.')}</p></div></div></section>
-    <section className="hobbies section"><div className="section-title"><div><p className="section-eyebrow">{tx(lang, '03 / EN DEHORS DE L’ÉCRAN', '03 / AWAY FROM THE SCREEN')}</p><h2>{tx(lang, 'Et à côté', 'Beyond work')}<span className="name-dot">.</span></h2></div><p>{tx(lang, 'Un terrain, un voyage, une nouvelle partie.', 'A court, a journey, another game.')}</p></div><div className="hobby-grid"><article className="hobby badminton"><span className="mono">01 / BADMINTON</span><strong>{tx(lang, 'Compétition', 'Competition')}</strong><p>{tx(lang, 'Je pratique le badminton en compétition.', 'I play competitive badminton.')}</p><span className="hobby-marker">{tx(lang, 'SUR LE TERRAIN', 'ON THE COURT')}</span></article><article className="hobby travel"><span className="mono">{tx(lang, '02 / VOYAGES', '02 / TRAVEL')}</span><strong>{tx(lang, 'Séoul', 'Seoul')}<span>2018–2019</span></strong><p>{tx(lang, 'J’y ai travaillé et appris le coréen en autonomie. L’Asie reste un de mes centres d’intérêt.', 'I worked there and taught myself Korean. Asia remains one of my interests.')}</p><span className="hobby-marker">{tx(lang, '서울 / CORÉE DU SUD', '서울 / SOUTH KOREA')}</span></article><article className="hobby mahjong"><span className="mono">03 / MAHJONG</span><div className="mahjong-heading"><strong>Riichi</strong><button className={`mahjong-tile ${tile ? 'turned' : ''}`} onClick={() => setTile(!tile)} aria-pressed={tile} aria-label={tx(lang, 'Retourner la tuile de mahjong', 'Flip the mahjong tile')}><span aria-hidden="true">{tile ? '東' : '中'}</span></button></div><p>{tx(lang, 'Je joue au mahjong japonais.', 'I play Japanese mahjong.')}</p><span className="hobby-marker" aria-live="polite">{tile ? tx(lang, '東 / VENT D’EST', '東 / EAST WIND') : tx(lang, '中 / DRAGON ROUGE', '中 / RED DRAGON')} · {tx(lang, 'RETOURNEZ LA TUILE', 'FLIP THE TILE')}</span></article></div></section>
-    <Contact lang={lang}/></main><footer className="footer"><a className="wordmark" href="#accueil" aria-label={tx(lang, 'Retour à l’accueil', 'Back to home')}>cv</a><p>Charles Vanzetta · Portfolio</p><a href="#projets">{tx(lang, 'Retour aux projets ↑', 'Back to projects ↑')}</a><AnalyticsConsent lang={lang}/></footer>
+    <section className="method section retro-window"><WindowBar title="methode.txt" detail={tx(lang, 'Une façon de travailler', 'How I work')}/><div className="section-title"><div><h2>{tx(lang, 'Rendre le résultat', 'Make the result')}<br/><em>{tx(lang, 'vérifiable.', 'verifiable.')}</em></h2></div><p>{tx(lang, 'Du problème initial aux limites du système,', 'From the initial problem to the system’s limitations,')}<br className="desktop"/> {tx(lang, 'chaque étape doit pouvoir s’expliquer.', 'every step should be explainable.')}</p></div><div className="method-grid"><div><span>{tx(lang, '01 / COMPRENDRE', '01 / UNDERSTAND')}</span><h3>{tx(lang, 'Définir ce qu’on contrôle.', 'Define what to check.')}</h3><p>{tx(lang, 'Dans PDF Verifier, une règle explicite ce que le document doit contenir.', 'In PDF Verifier, a rule specifies what the document must contain.')}</p></div><div><span>{tx(lang, '02 / CONSTRUIRE', '02 / BUILD')}</span><h3>{tx(lang, 'Séparer les responsabilités.', 'Separate responsibilities.')}</h3><p>{tx(lang, 'Dans AlgoVisualizer, le calcul des étapes est séparé de leur affichage.', 'In AlgoVisualizer, step calculation is separate from rendering.')}</p></div><div><span>{tx(lang, '03 / ÉVALUER', '03 / EVALUATE')}</span><h3>{tx(lang, 'Regarder aussi les échecs.', 'Study failures too.')}</h3><p>{tx(lang, 'Dans Snake AI, la limite de perception est documentée au lieu d’être cachée.', 'In Snake AI, the perception limitation is documented rather than hidden.')}</p></div><div><span>{tx(lang, '04 / RENDRE UTILISABLE', '04 / MAKE IT USEFUL')}</span><h3>{tx(lang, 'Penser au suivi.', 'Plan for monitoring.')}</h3><p>{tx(lang, 'Dans ENERVISION, mon périmètre inclut la mise en place du modèle et l’alerting.', 'In ENERVISION, my scope includes model deployment and alerting.')}</p></div></div></section>
+    <section className="hobbies section retro-window"><WindowBar title="loisirs/" detail={tx(lang, 'En dehors de l’écran', 'Away from the screen')}/><div className="section-title"><div><h2>{tx(lang, 'Et à côté', 'Beyond work')}<span className="name-dot">.</span></h2></div><p>{tx(lang, 'Un terrain, un voyage, une nouvelle partie.', 'A court, a journey, another game.')}</p></div><div className="hobby-grid"><article className="hobby badminton"><span className="mono">01 / BADMINTON</span><div className="hobby-heading"><strong>{tx(lang, 'Compétition', 'Competition')}</strong><HobbyIcon kind="shuttle"/></div><p>{tx(lang, 'Je pratique le badminton en compétition.', 'I play competitive badminton.')}</p><span className="hobby-marker">{tx(lang, 'SUR LE TERRAIN', 'ON THE COURT')}</span></article><article className="hobby travel"><span className="mono">{tx(lang, '02 / VOYAGES', '02 / TRAVEL')}</span><div className="hobby-heading"><strong>{tx(lang, 'Séoul', 'Seoul')}<span>2018–2019</span></strong><HobbyIcon kind="namsan"/></div><p>{tx(lang, 'J’y ai travaillé et appris le coréen en autonomie. L’Asie reste un de mes centres d’intérêt.', 'I worked there and taught myself Korean. Asia remains one of my interests.')}</p><span className="hobby-marker">{tx(lang, '서울 / CORÉE DU SUD', '서울 / SOUTH KOREA')}</span></article><article className="hobby mahjong"><span className="mono">03 / MAHJONG</span><div className="mahjong-heading"><strong>Riichi</strong><button className={`mahjong-tile ${tile ? 'turned' : ''}`} onClick={() => setTile(!tile)} aria-pressed={tile} aria-label={tx(lang, 'Retourner la tuile de mahjong', 'Flip the mahjong tile')}><span aria-hidden="true">{tile ? '東' : '中'}</span></button></div><p>{tx(lang, 'Je joue au mahjong japonais.', 'I play Japanese mahjong.')}</p><span className="hobby-marker" aria-live="polite">{tile ? tx(lang, '東 / VENT D’EST', '東 / EAST WIND') : tx(lang, '中 / DRAGON ROUGE', '中 / RED DRAGON')} · {tx(lang, 'RETOURNEZ LA TUILE', 'FLIP THE TILE')}</span></article></div></section>
+    <Contact lang={lang}/></main><footer className="footer"><SiteLogo lang={lang}/><p>Charles Vanzetta · Portfolio</p><a href="#projets">{tx(lang, 'Retour aux projets ↑', 'Back to projects ↑')}</a><AnalyticsConsent lang={lang}/></footer>
   </>;
 }
 const root = import.meta.hot?.data.root ?? createRoot(document.getElementById('root'));

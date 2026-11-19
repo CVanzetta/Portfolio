@@ -20,7 +20,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - run: node --test src/algorithms.test.js src/analytics.test.js
+      - run: npm test
       - run: npm run build
         env:
           VITE_GA_MEASUREMENT_ID: ${{ vars.VITE_GA_MEASUREMENT_ID }}

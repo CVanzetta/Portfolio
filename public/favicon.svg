@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#b7dfc7"/><text x="32" y="44" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="34" fill="#20231f">cv</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <path fill="#9e8cf0" d="M6 2h4v1h2v2h1v4h1v3h-2v2H4v-2H2V9h1V5h1V3h2z"/>
+  <path fill="#fff3e5" d="M5 5h2v1h2V5h2v3h1v4h-1v1H5v-1H4V8h1z"/>
+  <path fill="#282044" d="M5 6h2v2H5zm4 0h2v2H9z"/>
+  <path fill="#ffd477" d="M7 8h2v1H7zm-3 5h3v2H4zm5 0h3v2H9z"/>
+</svg>

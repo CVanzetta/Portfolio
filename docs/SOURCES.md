@@ -1,13 +1,13 @@
-# Sources éditoriales — 22 septembre 2026
+# Sources du portfolio
 
 ## Sources personnelles
 
-- CV fourni : `Design (1).pdf`, une page, lu et inspecté visuellement. Repris tel quel dans `public/CV-Charles-Vanzetta.pdf`.
+- CV fournis par Charles dans `public/francais.pdf` et `public/Anglais.pdf`.
 - Confirmation directe de Charles : `charles.vanzetta@gmail.com` est l’adresse à utiliser.
 - Confirmation directe : ENERVISION, rôle de PO, organisation du temps et du travail, ETL, entraînement des modèles, mise en place et alerting. Hébergement scolaire coupé après l’examen.
 - Confirmation directe : POC professionnel en Python / OpenCode, modèles Qwen ou GLM 5.2, analyse de tickets Jira, lancement de l’application avec Playwright, écriture / modification / lancement de tests, couche FastAPI. Le code ne peut pas être montré. Aucune validation humaine ni autonomie complète n’a été supposée.
 - Le CV sert de source actuelle pour Fortil, le parcours, Séoul 2018–2019, le badminton en compétition et le mahjong Riichi. Aucun classement sportif, nombre de pays ou résultat de modèle n’a été inventé.
-- Portrait retenu pour l’accueil : fichier fourni `Image Codex 24 sept. 2026, 15_35_25.png`, redimensionné et compressé en deux WebP transparents. Aucune nouvelle génération de visage pendant l’intégration. Photo extérieure retirée à la demande de Charles ; photo de badminton non encore fournie.
+- Portrait de Charles dans « À propos », détouré et compressé dans `src/portrait-cutout-v2-540.webp`.
 
 ## Sources publiques inspectées
 
@@ -15,7 +15,7 @@ Inventaire des 29 dépôts publics du compte GitHub. Les dépôts retenus ci-des
 
 | Source | Preuves consultées | Traitement |
 | --- | --- | --- |
-| [Portfolio existant](https://github.com/CVanzetta/Portfolio) | README, package.json, Vite, constantes des projets, contact, médias | React/Vite et verrou npm conservés. Contenu réécrit et vérifié. |
+| [Portfolio de Charles](https://github.com/CVanzetta/Portfolio) | Références aux projets, contact et médias de Charles | Site React et Vite. Les anciens fichiers générés ont été retirés de l’arborescence courante. |
 | [Profil GitHub](https://github.com/CVanzetta) | Présentation et lien LinkedIn | Positionnement, lien de contact ; les fonctions actuelles viennent du CV fourni. |
 | [AlgoVisualizer](https://github.com/CVanzetta/AlgoVisualizer) | README, capture screenshot2.png, implémentations Java, QuickSortTest.java, arborescence des tests | Projet principal et adaptation JavaScript. Contributions externes explicitement signalées. |
 | [PDF Verifier](https://github.com/CVanzetta/pdf-verifier) | README, Tests.json, routes FastAPI OCR, extraction, détection et vérification, matching.py | Projet principal. OCR Tesseract et ORB/SIFT vérifiables ; absence de pipeline LLM/RAG dans ce code. |
